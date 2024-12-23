@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobConnect</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="shortcut icon" href="images/job-promotion.png" type="image/x-icon">
+
+    <!--Tailwind css-->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="bg-white">
+        <header class="absolute inset-x-0 top-0 z-50">
+            <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+                <!-- Logo -->
+                <div class="flex lg:flex-1">
+                    <a href="index.html" class="-m-1.5 p-1.5">
+                        <span class="sr-only">JobConnect</span>
+                        <img class="h-8 w-auto" src="images/job-promotion.png" alt="JobConnect Logo">
+                    </a>
+                </div>
+        
+                <!-- Mobile Menu Button -->
+                <div class="flex lg:hidden">
+                    <button id="mobile-menu-open" type="button"
+                        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                        <span class="sr-only">Ouvrir le menu principal</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+        
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex lg:gap-x-12">
+                    <a href="index.html" class="text-sm font-semibold text-gray-900">Services</a>
+                    <a href="jobs.html" class="text-sm font-semibold text-gray-900">Emplois</a>
+                    <a href="recruteurs.html" class="text-sm font-semibold text-gray-900">Recruteurs</a>
+        
+                    <!-- Menu avec sous-menu -->
+                    <div class="relative group">
+                        <a class="text-sm font-semibold text-gray-900 flex items-center" href="outils.html">
+                            Outils et Tarification
+                            <svg class="ml-1 h-4 w-4 text-gray-900 transition-transform duration-300 group-hover:rotate-180"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <!-- Sous-menu -->
+                        <div
+                            class="absolute left-0 hidden mt-2 w-48 bg-white shadow-lg rounded-md group-hover:block transition duration-300">
+                            <a href="#"
+                                class="block px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-100">Outils disponibles</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-100">Options Tarifaires</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-100">Entreprises</a>
+                        </div>
+                    </div>
+        
+                    <a href="blog.html" class="text-sm font-semibold text-gray-900">Ressources</a>
+                </div>
+        
+                <!-- Desktop Login -->
+                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <a href="login.html" class="text-sm font-semibold text-gray-900">Se connecter <span
+                            aria-hidden="true">&rarr;</span></a>
+                </div>
+            </nav>
+        
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="hidden fixed inset-0 z-50 bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <div class="flex items-center justify-between">
+                    <a href="#" class="-m-1.5 p-1.5">
+                        <span class="sr-only">JobConnect</span>
+                        <img class="h-8 w-auto" src="images/job-promotion.png" alt="JobConnect Logo">
+                    </a>
+                    <button id="mobile-menu-close" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                        <span class="sr-only">Fermer le menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="mt-6 flow-root">
+                    <div class="-my-6 divide-y divide-gray-500/10">
+                        <div class="space-y-2 py-6">
+                            <a href="index.html"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Services</a>
+                            <a href="jobs.html"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Emplois</a>
+                            <a href="recruteurs.html"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Recruteurs</a>
+                            <!-- Sous-menu Mobile -->
+                            <div>
+                                <button id="mobile-submenu-open"
+                                    class="-mx-3 flex w-full items-center justify-between rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">
+                                    Outils et Tarification
+                                    <svg class="h-4 w-4 transition-transform" id="mobile-submenu-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                <div id="mobile-submenu" class="hidden mt-2 space-y-2 pl-6">
+                                    <a href="simulator.html"
+                                        class="block rounded-lg px-3 py-2 text-base text-gray-700 hover:bg-gray-100">Simulateur de CV</a>
+                                    <a href="price.html"
+                                        class="block rounded-lg px-3 py-2 text-base text-gray-700 hover:bg-gray-100">Options Tarifaires</a>
+                                    <a href="tools.html"
+                                        class="block rounded-lg px-3 py-2 text-base text-gray-700 hover:bg-gray-100">Outils disponibles</a>
+                                </div>
+                            </div>
+                            <a href="blog.html"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Ressources</a>
+                        </div>
+                        <div class="py-6">
+                            <a href="login.html"
+                                class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-gray-900 hover:bg-gray-50">Se
+                                connecter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>       
+
+        <div class="relative isolate px-6 lg:px-8">
+            <div class="mx-auto max-w-4xl py-32 sm:py-48 lg:py-44">
+                <div class="text-center">
+                    <h1 class="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Trouvez
+                        facilement des emplois qui vous correspondent</h1>
+                    <p class="mt-8 text-lg font-medium text-gray-600 sm:text-md/8">Que vous soyez débutant ou expert,
+                        nous avons des opportunités pour vous. Explorez les meilleures offres d'emploi et commencez une
+                        nouvelle aventure!
+                    </p>
+                    <div class="mt-10 flex items-center justify-center gap-x-6">
+                        <a href="jobs.html"
+                            class="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Trouvez
+                            un emploi</a>
+                        <a href="#" class="text-sm/6 font-semibold text-gray-900">Publiez une offre <span
+                                aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+
+
+                <section class="py-6 mt-6">
+                    <div class="container mx-auto px-4">
+                        <div
+                            class="bg-white p-4 md:p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+                            <!-- Input pour l'intitulé du poste -->
+                            <div class="relative flex-1">
+                                <input type="text" placeholder="Intitulé du poste, mots-clés..."
+                                    class="w-full pl-10 pr-4 py-3 border border-gray-100 rounded-md shadow-sm outline-gray-200 focus:border-gray-100 text-gray-700">
+                                <div class="absolute inset-y-0 left-3 flex items-center text-gray-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="gray">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 4a6 6 0 016 6c0 1.4-.448 2.691-1.207 3.759l4.272 4.273a1 1 0 01-1.415 1.414l-4.272-4.272A5.972 5.972 0 0110 16a6 6 0 110-12z" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Input pour les villes ou départements -->
+                            <div class="relative flex-1">
+                                <input type="text" placeholder="Ville, département..."
+                                    class="w-full pl-10 pr-4 py-3 border border-gray-100 rounded-md shadow-sm outline-gray-200 focus:border-gray-100 text-gray-700">
+                                <div class="absolute inset-y-0 left-3 flex items-center text-gray-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-gray-400">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Bouton de recherche -->
+                            <div>
+                                <button
+                                    class="w-full md:w-auto px-6 py-3 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600 focus:ring-4 focus:ring-red-300">
+                                    Rechercher
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white py-4 sm:py-6">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-5xl lg:text-center">
+                <h2 class="text-base/7 font-semibold text-red-600">Simplifiez votre recrutement</h2>
+                <p
+                    class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-4xl lg:text-balance">
+                    Tout ce dont vous avez besoin pour embaucher ou trouver un emploi</p>
+                <p class="mt-6 text-lg/8 text-gray-600">Découvrez une plateforme dédiée à la mise en relation entre
+                    recruteurs et talents. Publiez des offres ou trouvez des opportunités adaptées à vos compétences.
+                </p>
+            </div>
+            <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+                <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+                    <div class="relative pl-16">
+                        <dt class="text-base/7 font-semibold text-gray-900">
+                            <div
+                                class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg bg-red-600">
+                                <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true" data-slot="icon">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
+                                </svg>
+                            </div>
+                            Publiez vos offres
+                        </dt>
+                        <dd class="mt-2 text-base/7 text-gray-600">Mettez en ligne vos annonces en quelques clics et
+                            trouvez rapidement les meilleurs talents pour vos besoins.</dd>
+                    </div>
+                    <div class="relative pl-16">
+                        <dt class="text-base/7 font-semibold text-gray-900">
+                            <div
+                                class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg bg-red-600">
+                                <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true" data-slot="icon">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                                </svg>
+                            </div>
+                            Trouvez des opportunités
+                        </dt>
+                        <dd class="mt-2 text-base/7 text-gray-600">Explorez une multitude d'offres d'emploi et trouvez
+                            celle qui correspond le mieux à vos aspirations.</dd>
+                    </div>
+                    <div class="relative pl-16">
+                        <dt class="text-base/7 font-semibold text-gray-900">
+                            <div
+                                class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg bg-red-600">
+                                <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true" data-slot="icon">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                </svg>
+                            </div>
+                            Gestion simplifiée
+                        </dt>
+                        <dd class="mt-2 text-base/7 text-gray-600">Gérez vos candidatures et interactions sur une
+                            interface intuitive et performante.</dd>
+                    </div>
+                    <div class="relative pl-16">
+                        <dt class="text-base/7 font-semibold text-gray-900">
+                            <div
+                                class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg bg-red-600">
+                                <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" aria-hidden="true" data-slot="icon">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33" />
+                                </svg>
+                            </div>
+                            Sécurité et confidentialité
+                        </dt>
+                        <dd class="mt-2 text-base/7 text-gray-600">Vos données et celles de vos candidats sont protégées
+                            grâce à nos mesures de sécurité avancées.</dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:mx-0">
+                <h2 class="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Offres d'emploi
+                </h2>
+                <p class="mt-2 text-lg/8 text-gray-600">Trouvez l'emploi idéal grâce à notre sélection d'offres
+                    récentes.</p>
+            </div>
+            <div
+                class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+
+                <article class="flex max-w-xl flex-col items-start justify-between">
+                    <div class="flex items-center gap-x-4 text-xs">
+                        <time datetime="2024-12-18" class="text-gray-500">18 Déc 2024</time>
+                        <a href="#"
+                            class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Développement
+                            Web</a>
+                    </div>
+                    <div class="group relative">
+                        <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                            <a href="#">
+                                <span class="absolute inset-0"></span>
+                                Développeur Front-End
+                            </a>
+                        </h3>
+                        <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">Rejoignez une équipe dynamique pour créer
+                            des
+                            interfaces utilisateur modernes et réactives. Compétences en HTML, CSS et JavaScript
+                            requises.</p>
+                    </div>
+                    <div class="relative mt-8 flex items-center gap-x-4">
+                        <img src="images/enterp.jpg" alt="" class="size-10 rounded-full bg-gray-50">
+                        <div class="text-sm/6">
+                            <p class="font-semibold text-gray-900">
+                                <a href="#">
+                                    <span class="absolute inset-0"></span>
+                                    Tech Solutions
+                                </a>
+                            </p>
+                            <p class="text-gray-600">Paris, France</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="flex max-w-xl flex-col items-start justify-between">
+                    <div class="flex items-center gap-x-4 text-xs">
+                        <time datetime="2024-12-18" class="text-gray-500">18 Déc 2024</time>
+                        <a href="#"
+                            class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+                    </div>
+                    <div class="group relative">
+                        <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                            <a href="#">
+                                <span class="absolute inset-0"></span>
+                                Responsable Marketing Digital
+                            </a>
+                        </h3>
+                        <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">Vous serez chargé de développer des
+                            campagnes de
+                            marketing digital efficaces pour accroître la visibilité de notre entreprise.</p>
+                    </div>
+                    <div class="relative mt-8 flex items-center gap-x-4">
+                        <p class="size-10 rounded-full bg-gray-50">🎯</p>
+                        <div class="text-sm/6">
+                            <p class="font-semibold text-gray-900">
+                                <a href="#">
+                                    <span class="absolute inset-0"></span>
+                                    Creative Agency
+                                </a>
+                            </p>
+                            <p class="text-gray-600">Lyon, France</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="flex max-w-xl flex-col items-start justify-between">
+                    <div class="flex items-center gap-x-4 text-xs">
+                        <time datetime="2024-12-18" class="text-gray-500">18 Déc 2024</time>
+                        <a href="#"
+                            class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Design</a>
+                    </div>
+                    <div class="group relative">
+                        <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                            <a href="#">
+                                <span class="absolute inset-0"></span>
+                                Designer UX/UI
+                            </a>
+                        </h3>
+                        <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">Nous recherchons un designer UX/UI
+                            talentueux pour
+                            concevoir des interfaces utilisateur innovantes et centrées sur l'utilisateur.</p>
+                    </div>
+                    <div class="relative mt-8 flex items-center gap-x-4">
+                        <img src="images/vecteur.jpg" alt="" class="size-10 rounded-full bg-gray-50">
+                        <div class="text-sm/6">
+                            <p class="font-semibold text-gray-900">
+                                <a href="#">
+                                    <span class="absolute inset-0"></span>
+                                    Digital Design Studio
+                                </a>
+                            </p>
+                            <p class="text-gray-600">Bordeaux, France</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="flex max-w-xl flex-col items-start justify-between">
+                    <div class="flex items-center gap-x-4 text-xs">
+                        <time datetime="2024-12-15" class="text-gray-500">15 Décembre 2024</time>
+                        <a href="#"
+                            class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Administration</a>
+                    </div>
+                    <div class="group relative">
+                        <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                            <a href="#">
+                                <span class="absolute inset-0"></span>
+                                Assistant(e) Administratif(ve)
+                            </a>
+                        </h3>
+                        <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">
+                            Poste en CDI pour un(e) assistant(e) organisé(e) et autonome, gestion des plannings et des
+                            dossiers
+                            administratifs. Expérience requise : 2 ans.
+                        </p>
+                    </div>
+                    <div class="relative mt-8 flex items-center gap-x-4">
+                        <img src="images/rendu.jpg" alt="Assistant Administratif"
+                            class="size-10 rounded-full bg-gray-50">
+                        <div class="text-sm/6">
+                            <p class="font-semibold text-gray-900">
+                                <a href="#">
+                                    <span class="absolute inset-0"></span>
+                                    Bureau Solutions
+                                </a>
+                            </p>
+                            <p class="text-gray-600">Marseille, France</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="flex max-w-xl flex-col items-start justify-between">
+                    <div class="flex items-center gap-x-4 text-xs">
+                        <time datetime="2024-12-10" class="text-gray-500">10 Décembre 2024</time>
+                        <a href="#"
+                            class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+                    </div>
+                    <div class="group relative">
+                        <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                            <a href="#">
+                                <span class="absolute inset-0"></span>
+                                Responsable Marketing Digital
+                            </a>
+                        </h3>
+                        <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">
+                            Développez la stratégie digitale d'une entreprise internationale et gérez des campagnes sur
+                            les réseaux
+                            sociaux. Expérience : 3 ans minimum.
+                        </p>
+                    </div>
+                    <div class="relative mt-8 flex items-center gap-x-4">
+                        <img src="images/enterp.jpg" alt="Marketing" class="size-10 rounded-full bg-gray-50">
+                        <div class="text-sm/6">
+                            <p class="font-semibold text-gray-900">
+                                <a href="#">
+                                    <span class="absolute inset-0"></span>
+                                    Global Marketing Ltd
+                                </a>
+                            </p>
+                            <p class="text-gray-600">Lyon, France</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="flex max-w-xl flex-col items-start justify-between">
+                    <div class="flex items-center gap-x-4 text-xs">
+                        <time datetime="2024-12-01" class="text-gray-500">1 Décembre 2024</time>
+                        <a href="#"
+                            class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Informatique</a>
+                    </div>
+                    <div class="group relative">
+                        <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                            <a href="#">
+                                <span class="absolute inset-0"></span>
+                                Développeur Web Front-end
+                            </a>
+                        </h3>
+                        <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">
+                            Rejoignez une startup innovante en tant que développeur spécialisé en React.js et Tailwind
+                            CSS. Contrat
+                            CDI, possibilité de télétravail.
+                        </p>
+                    </div>
+                    <div class="relative mt-8 flex items-center gap-x-4">
+                        <img src="images/job-promotion (2).png" alt="Développeur"
+                            class="size-10 rounded-full bg-gray-50">
+                        <div class="text-sm/6">
+                            <p class="font-semibold text-gray-900">
+                                <a href="#">
+                                    <span class="absolute inset-0"></span>
+                                    Tech Innovators
+                                </a>
+                            </p>
+                            <p class="text-gray-600">Paris, France</p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            <div class="mt-14 flex justify-end">
+                <a href="jobs.html"
+                    class="inline-flex items-center rounded-md bg-pretty px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-pretty-hover">
+                    Voir plus d'opportunités
+                    <svg class="ml-2 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path
+                            d="M7 16a1 1 0 0 1-.707-1.707L11.586 10 6.293 4.707A1 1 0 0 1 7.707 3.293l5 5a1 1 0 0 1 0 1.414l-5 5A1 1 0 0 1 7 16z" />
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bg-white">
+        <div class="mx-auto max-w-7xl py-16 sm:px-6 sm:py-10 lg:px-8">
+            <div
+                class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:items-center lg:gap-x-20 lg:px-24 lg:pt-0">
+
+                <svg viewBox="0 0 1024 1024"
+                    class="absolute left-1/2 top-1/2 -z-10 h-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
+                    aria-hidden="true">
+                    <circle cx="512" cy="512" r="512" fill="url(#gradient)" fill-opacity="0.7" />
+                    <defs>
+                        <radialGradient id="gradient">
+                            <stop stop-color="#7775D6" />
+                            <stop offset="1" stop-color="#E935C1" />
+                        </radialGradient>
+                    </defs>
+                </svg>
+
+                <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+                    <h2 class="text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">Trouvez votre
+                        emploi idéal sur JobConnect.</h2>
+                    <p class="mt-6 text-pretty text-lg/8 text-gray-300">Explorez des centaines d'opportunités d'emploi
+                        publiées par des entreprises de confiance, et commencez dès aujourd'hui à postuler pour votre
+                        futur
+                        poste.</p>
+                    <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+                        <a href="register.html"
+                            class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Créer
+                            un compte</a>
+                        <a href="blog.html" class="text-sm/6 font-semibold text-white">En savoir plus <span
+                                aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+
+                <div class="relative mt-16 h-80 w-full lg:mt-0 lg:h-[32rem] lg:flex-shrink-0 lg:w-auto">
+                    <img class="absolute left-1/2 top-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-md bg-white/5 ring-1 ring-white/10 lg:static lg:translate-x-0 lg:translate-y-0 lg:max-w-none lg:w-[30rem] lg:h-[32rem] object-cover"
+                        src="images/heureux-jeune.jpg" alt="Capture d'écran du site JobConnect">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative isolate bg-white px-6 py-24 sm:py-12 lg:px-8">
+        <div class="mx-auto max-w-5xl text-center">
+            <h2 class="text-base/7 font-semibold text-red-600">Tarifs</h2>
+            <p class="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Choisissez
+                l'offre adaptée à vos besoins</p>
+        </div>
+        <p class="mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-600 sm:text-xl/8">
+            Que vous soyez à la recherche d'un emploi ou que vous recrutiez des talents, trouvez l'option parfaite pour
+            maximiser vos opportunités.
+        </p>
+        <div
+            class="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
+            <!-- Plan Chercheurs d'emploi -->
+            <div
+                class="rounded-3xl bg-white/60 p-8 ring-1 ring-gray-900/10 sm:mx-8 sm:rounded-b-none sm:p-10 lg:mx-0 lg:rounded-bl-3xl lg:rounded-tr-none">
+                <h3 id="plan-jobseeker" class="text-base/7 font-semibold text-red-600">Chercheurs d'emploi</h3>
+                <p class="mt-4 flex items-baseline gap-x-2">
+                    <span class="text-5xl font-semibold tracking-tight text-gray-900">Gratuit</span>
+                </p>
+                <p class="mt-6 text-base/7 text-gray-600">Un plan gratuit pour explorer les offres d'emploi et postuler
+                    facilement.</p>
+                <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-600 sm:mt-10">
+                    <li class="flex gap-x-3">
+                        <svg class="h-6 w-5 flex-none text-red-600" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        Recherche d'offres illimitée
+                    </li>
+                    <li class="flex gap-x-3">
+                        <svg class="h-6 w-5 flex-none text-red-600" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        Création de profil professionnel
+                    </li>
+                    <li class="flex gap-x-3">
+                        <svg class="h-6 w-5 flex-none text-red-600" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        Alertes d'emploi personnalisées
+                    </li>
+                </ul>
+                <a href="#" aria-describedby="plan-jobseeker"
+                    class="mt-8 block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-red-600 ring-1 ring-inset ring-red-200 hover:ring-red-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 sm:mt-10">Commencez
+                    maintenant</a>
+            </div>
+            <!-- Plan Recruteurs -->
+            <div class="relative rounded-3xl bg-gray-900 p-8 shadow-2xl ring-1 ring-gray-900/10 sm:p-10">
+                <h3 id="plan-recruiter" class="text-base/7 font-semibold text-red-400">Recruteurs</h3>
+                <p class="mt-4 flex items-baseline gap-x-2">
+                    <span class="text-5xl font-semibold tracking-tight text-white">99 €</span>
+                    <span class="text-base text-gray-400">/mois</span>
+                </p>
+                <p class="mt-6 text-base/7 text-gray-300">Un plan complet pour trouver les meilleurs talents rapidement.
+                </p>
+                <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-300 sm:mt-10">
+                    <li class="flex gap-x-3">
+                        <svg class="h-6 w-5 flex-none text-red-400" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        Publication d'offres illimitée
+                    </li>
+                    <li class="flex gap-x-3">
+                        <svg class="h-6 w-5 flex-none text-red-400" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        Accès à la base de CV
+                    </li>
+                    <li class="flex gap-x-3">
+                        <svg class="h-6 w-5 flex-none text-red-400" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        Priorité dans les recherches
+                    </li>
+                </ul>
+                <a href="#" aria-describedby="plan-recruiter"
+                    class="mt-8 block rounded-md bg-red-400 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:mt-10">Choisissez
+                    ce plan</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+                <div class="max-w-xl lg:max-w-lg">
+                    <h2 class="text-4xl font-semibold tracking-tight text-white">Abonnez-vous à notre newsletter</h2>
+                    <p class="mt-4 text-lg text-gray-300">Recevez chaque semaine des articles inspirants directement
+                        dans votre boîte mail.</p>
+                    <div class="mt-6 flex max-w-md gap-x-4">
+                        <label for="email-address" class="sr-only">Adresse email</label>
+                        <input id="email-address" name="email" type="email" autocomplete="email" required
+                            class="min-w-0 flex-auto rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-gray-500 sm:text-sm/6"
+                            placeholder="Entrez votre email">
+                        <button type="submit"
+                            class="flex-none rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500">S'abonner</button>
+                    </div>
+                </div>
+                <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
+                    <div class="flex flex-col items-start">
+                        <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+                            <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true" data-slot="icon">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                            </svg>
+                        </div>
+                        <dt class="mt-4 text-base font-semibold text-white">Articles hebdomadaires</dt>
+                        <dd class="mt-2 text-base/7 text-gray-400">Recevez du contenu exclusif chaque semaine.</dd>
+                    </div>
+                    <div class="flex flex-col items-start">
+                        <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+                            <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true" data-slot="icon">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10.05 4.575a1.575 1.575 0 1 0-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 0 1 3.15 0v1.5m-3.15 0 .075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 0 1 3.15 0V15M6.9 7.575a1.575 1.575 0 1 0-3.15 0v8.175a6.75 6.75 0 0 0 6.75 6.75h2.018a5.25 5.25 0 0 0 3.712-1.538l1.732-1.732a5.25 5.25 0 0 0 1.538-3.712l.003-2.024a.668.668 0 0 1 .198-.471 1.575 1.575 0 1 0-2.228-2.228 3.818 3.818 0 0 0-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0 1 16.35 15m.002 0h-.002" />
+                            </svg>
+                        </div>
+                        <dt class="mt-4 text-base font-semibold text-white">Pas de spam</dt>
+                        <dd class="mt-2 text-base/7 text-gray-400">Nous respectons votre boîte mail et votre vie privée.
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-gray-300 py-16 relative mt-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+                <div>
+                    <a href="#" class="text-2xl font-bold text-white">JobConnect.</a>
+                    <p class="mt-4 text-sm leading-6 text-gray-400">
+                        JobConnect aide les chercheurs d'emploi et recruteurs à se connecter et trouver les meilleures
+                        opportunités.
+                        Notre mission : simplifier la recherche d'emploi.
+                    </p>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-[#fe8040]">
+                            <span class="sr-only">Facebook</span>
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.675 0h-21.35C.593 0 0 .593 0 1.325v21.351C0 23.408.593 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.785 4.659-4.785 1.325 0 2.464.099 2.795.143v3.243h-1.917c-1.504 0-1.795.714-1.795 1.76v2.309h3.589l-.467 3.622h-3.122V24h6.116C23.408 24 24 23.408 24 22.675V1.325C24 .593 23.408 0 22.675 0z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-[#fe8040]">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.954 4.569c-.885.39-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.949.555-2.005.959-3.127 1.184-.897-.959-2.173-1.559-3.594-1.559-3.179 0-5.515 3.042-4.797 6.045C7.728 8.087 4.1 6.13 1.671 3.149c-.35.602-.547 1.301-.547 2.051 0 1.422.722 2.676 1.823 3.411-.672-.021-1.305-.205-1.853-.513v.051c0 1.98 1.408 3.637 3.277 4.014-.343.094-.705.145-1.079.145-.262 0-.519-.026-.769-.076.52 1.63 2.031 2.815 3.825 2.849-1.4 1.099-3.157 1.754-5.077 1.754-.33 0-.654-.019-.975-.057 1.812 1.161 3.963 1.836 6.261 1.836 7.547 0 11.675-6.155 11.675-11.496 0-.175-.004-.35-.013-.523.797-.574 1.493-1.287 2.042-2.103z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-[#fe8040]">
+                            <span class="sr-only">LinkedIn</span>
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M20.447 20.452H16.89v-5.569c0-1.327-.026-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.936v5.67H9.293V9h3.465v1.561h.05c.482-.915 1.663-1.877 3.423-1.877 3.659 0 4.337 2.411 4.337 5.545v6.223zM5.337 7.433a2.034 2.034 0 11-.001-4.068 2.034 2.034 0 01.001 4.068zM6.842 20.452H3.832V9h3.01v11.452z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-white">Liens rapides</h3>
+                    <ul class="mt-4 space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-[#fe8040]">Accueil</a></li>
+                        <li><a href="#" class="hover:text-[#fe8040]">À propos</a></li>
+                        <li><a href="#" class="hover:text-[#fe8040]">Blog</a></li>
+                        <li><a href="#" class="hover:text-[#fe8040]">Contact</a></li>
+                        <li><a href="#" class="hover:text-[#fe8040]">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-white">Newsletter</h3>
+                    <p class="mt-4 text-sm text-gray-400">Recevez les dernières offres et conseils directement dans
+                        votre boîte mail.</p>
+                    <form class="mt-6 flex">
+                        <input type="email" placeholder="Votre email"
+                            class="w-full rounded-l-lg border border-gray-600 bg-gray-800 p-3 text-sm text-gray-300 focus:ring-2 focus:ring-gray-700 focus:outline-none">
+                        <button
+                            class="rounded-r-lg bg-red-600 px-5 text-sm font-semibold text-white hover:bg-red-400">S'abonner</button>
+                    </form>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-white">Mentions légales</h3>
+                    <ul class="mt-4 space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-[#fe8040]">Politique de confidentialité</a></li>
+                        <li><a href="#" class="hover:text-[#fe8040]">Conditions d'utilisation</a></li>
+                        <li><a href="#" class="hover:text-[#fe8040]">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 border-t border-gray-700 pt-8 text-center">
+                <p class="text-sm text-gray-500">&copy; 2024 JobConnect. Tous droits réservés.</p>
+            </div>
+        </div>
+
+        <button onclick="scrollToTop()"
+            class="fixed bottom-8 right-8 bg-[#fe8040] hover:bg-[#e66f30] text-white p-3 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#fe8040]">
+            ↑
+        </button>
+    </footer>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openMenuButton = document.getElementById('mobile-menu-open');
+        const closeMenuButton = document.getElementById('mobile-menu-close');
+
+        openMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    </script>
+
+</body>
+
+</html>

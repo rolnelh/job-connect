@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Tableau de bord</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="shortcut icon" href="images/job-promotion.png" type="image/x-icon">
+
+    <!--Tailwind css-->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    
+    <section class=" h-full py-24 mt-16 mb-16">
+        <div class="max-w-7xl mx-auto flex">
+
+            <aside class="w-1/4 bg-white shadow-md p-6">
+                <div class="flex items-center space-x-3 mb-6">
+                    <img src="images/identite-marque.jpg" alt="Logo entreprise" class="w-10 h-10 rounded-full" />
+                    <h2 class="text-lg font-semibold text-gray-700">Entreprise XYZ</h2>
+                </div>
+                <h2 class="text-lg font-semibold text-gray-700 mb-6">Actions</h2>
+                <ul class="space-y-4">
+                    <li>
+                        <button id="dashboard-btn"
+                            class="w-full flex items-center text-left p-3 bg-gray-50 hover:bg-gray-100 rounded-lg text-gray-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-blue-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12h6m2 0a2 2 0 012 2v4a2 2 0 01-2 2H7a2 2 0 01-2-2v-4a2-2 0 012-2m2-5.5a2.5 2.5 0 115 0V12" />
+                            </svg>
+                            Tableau de bord
+                        </button>
+                    </li>
+                    <li>
+                        <button id="publish-offer-btn"
+                            class="w-full flex items-center text-left p-3 bg-gray-50 hover:bg-gray-100 rounded-lg text-gray-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-green-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 10h16m-7 4h7m-7 4h7m-7 0H4m0-4h7m0 0H4" />
+                            </svg>
+                            Publier une offre
+                        </button>
+                    </li>
+                    <li>
+                        <button id="manage-applications-btn"
+                            class="w-full flex items-center text-left p-3 bg-gray-50 hover:bg-gray-100 rounded-lg text-gray-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-yellow-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 10h18M3 14h18m-7 4H3m7-12H3" />
+                            </svg>
+                            Gérer les candidatures
+                        </button>
+                    </li>
+                    <li>
+                        <button id="my-jobs-btn"
+                            class="w-full flex items-center text-left p-3 bg-gray-50 hover:bg-gray-100 rounded-lg text-gray-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-purple-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 10h16m-7 4h7m-7 4h7m-7 0H4m0-4h7m0 0H4" />
+                            </svg>
+                            Mes offres d'emploi
+                        </button>
+                    </li>
+                    <li>
+                        <button id="statistics-btn"
+                            class="w-full flex items-center text-left p-3 bg-gray-50 hover:bg-gray-100 rounded-lg text-gray-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-orange-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 10h16m-7 4h7m-7 4h7m-7 0H4m0-4h7m0 0H4" />
+                            </svg>
+                            Statistiques
+                        </button>
+                    </li>
+                    <li>
+                        <button id="settings-btn"
+                            class="w-full flex items-center text-left p-3 bg-gray-50 hover:bg-gray-100 rounded-lg text-gray-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-red-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 10h16m-7 4h7m-7 4h7m-7 0H4m0-4h7m0 0H4" />
+                            </svg>
+                            Paramètres
+                        </button>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <div id="main-content" class="flex-1 bg-gray-50 p-6">
+                <!-- Tableau de bord -->
+                <div id="dashboard" class="content">
+                    <div class="flex-1 bg-gray-50 p-6">
+                        <h1 class="text-3xl font-semibold text-gray-800 mb-4">
+                            Bienvenue dans votre espace recruteur
+                        </h1>
+                        <p class="text-gray-600 mb-8">
+                            Gérez vos offres d’emploi, suivez vos candidatures et optimisez votre
+                            processus de recrutement.
+                        </p>
+
+                        <!-- Exemple d'affichage des résultats -->
+                        <div class="bg-white shadow rounded-lg p-6">
+                            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Tableau de bord</h2>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                                <div class="bg-blue-100 p-4 rounded-lg">
+                                    <h3 class="text-lg font-medium text-blue-700">Offres publiées</h3>
+                                    <p class="text-4xl font-bold text-blue-900">15</p>
+                                </div>
+                                <div class="bg-green-100 p-4 rounded-lg">
+                                    <h3 class="text-lg font-medium text-green-700">Candidatures reçues</h3>
+                                    <p class="text-4xl font-bold text-green-900">87</p>
+                                </div>
+                                <div class="bg-yellow-100 p-4 rounded-lg">
+                                    <h3 class="text-lg font-medium text-yellow-700">Offres en attente</h3>
+                                    <p class="text-4xl font-bold text-yellow-900">3</p>
+                                </div>
+                                <div class="bg-red-100 p-4 rounded-lg">
+                                    <h3 class="text-lg font-medium text-red-700">Messages non lus</h3>
+                                    <p class="text-4xl font-bold text-red-900">5</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ajouter une nouvelle section pour les autres actions -->
+                <div id="my-jobs" class="content hidden">
+                    <h1 class="text-2xl font-bold text-gray-800">Mes Offres d'Emploi</h1>
+                    <p class="text-gray-600">Liste de toutes vos offres d'emploi publiées.</p>
+                    <!-- Exemple d'une offre -->
+                </div>
+
+                <div id="publish-offer" class="content hidden">
+                    <h1 class="text-2xl font-bold text-gray-800">Publier une offre</h1>
+                    <form class="mt-4 space-y-4">
+                        <div>
+                            <label class="block text-gray-700">Titre de l'offre</label>
+                            <input type="text"
+                                class="w-full p-3 border border-gray-300 rounded-md focus:ring focus:ring-blue-200"
+                                placeholder="Ex : Développeur Full-Stack" />
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Description</label>
+                            <textarea
+                                class="w-full p-3 border border-gray-300 rounded-md focus:ring focus:ring-blue-200"
+                                rows="5" placeholder="Description du poste..."></textarea>
+                        </div>
+                        <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                            Publier
+                        </button>
+                    </form>
+                </div>
+
+                <div id="manage-applications" class="content hidden">
+                    <h1 class="text-2xl font-bold text-gray-800">Gérer les candidatures</h1>
+                    <p class="text-gray-600">Liste des candidatures reçues pour vos offres.</p>
+                    <!-- Example table -->
+                    <table class="w-full mt-4 border border-gray-300">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="p-3 border">Nom du candidat</th>
+                                <th class="p-3 border">Poste</th>
+                                <th class="p-3 border">Date de candidature</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-3 border">John Doe</td>
+                                <td class="p-3 border">Développeur Web</td>
+                                <td class="p-3 border">21 Décembre 2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="statistics" class="content hidden">
+                    <h1 class="text-2xl font-bold">Statistiques</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openMenuButton = document.getElementById('mobile-menu-open');
+        const closeMenuButton = document.getElementById('mobile-menu-close');
+
+        openMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    </script>
+
+</body>
+
+</html>
